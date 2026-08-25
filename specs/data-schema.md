@@ -93,7 +93,7 @@ Ce schéma n'est pas une API. Il fixe les objets qu'une implémentation doit pou
 
 Champ interdit : `construct_id`, `estimates`, `attention`.
 
-## Validateur (contrat V1)
+## Validateur (contrat V1) — **implémenté**
 
 Un objet est rejeté si :
 
@@ -101,9 +101,18 @@ Un objet est rejeté si :
 2. une `Observation` porte un champ d'estimation ;
 3. `FunctionalProjection.status ≠ HYPOTHESIS` ;
 4. la cible d'une estimation est un code diagnostique ;
-5. `value` est présent sur un `Refusal`.
+5. `value` est présent sur un `Refusal` ;
+6. score nu (`Attention = 0.73`) ;
+7. feature digitale présentée comme construit ;
+8. identifiant civil (PII) ;
+9. fenêtre T0 sans `half_width` / `unit`.
 
-Implémentation du validateur : hors de cette version, mais les règles sont déjà testables.
+**Implémentation :** `validator/` (V1 forme + V5 admissibilité).
+
+```bash
+python validator/validate.py cases/valid/mini_scenario_attention.json
+python validator/validate.py --all
+```
 
 ## Données personnelles
 

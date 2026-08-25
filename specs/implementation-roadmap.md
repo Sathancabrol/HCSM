@@ -26,15 +26,22 @@ COMPUTATIONAL SPECIFICATION     ← nous sommes ici pour le logiciel
 - working paper de position ;
 - protocole de validation.
 
-## Phase 1 — validateur V1 (prochaine implémentation licite)
+## Phase 1 — validateur V1 (**fait** · v0.1.1)
 
 - lire `hcsm-v0.1.yaml` + JSON d'exemples ;
 - rejeter les objets interdits ;
 - jeux de cas synthétiques pour V5 (refus).
+- **Livré :** `validator/` — CLI, schéma V1, admissibilité V5, 23 cas, 29 tests.
 
 Pas d'UI. Pas de capteurs. Pas de personnes réelles.
 
-## Phase 2 — moteur d'inférence placeholder
+```bash
+cd validator && pip install -r requirements.txt
+python validate.py --all
+python -m pytest tests/ -q
+```
+
+## Phase 2 — moteur d'inférence placeholder (**prochaine**)
 
 - working model `model/latent-state-model.md` ;
 - uniquement données synthétiques ;

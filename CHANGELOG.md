@@ -4,6 +4,28 @@ Toutes les modifications notables de HCSM sont documentées ici.
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/).
 Le versionnage suit SemVer pour le modèle et l'ontologie, indépendamment du code.
 
+## [0.1.1] — 2026-08-25
+
+### Added
+
+- **Validateur V1** (`validator/`) : contrat de forme exécutable sur JSON.
+  - Rejette scores nus, observations-comme-construits, projections ICF non-HYPOTHESIS,
+    cibles diagnostiques, features digitales étiquetées cognition, PII, fenêtres mal formées,
+    `ConstructEstimate` incomplets, `Refusal` avec valeur par défaut.
+- **Admissibilité V5** : filtre pré-estimation (`NO_CONSTRUCT`, `NO_EVIDENCE`,
+  `WINDOW_UNDEFINED`, `CONTEXT_MISSING`, `UNRESOLVED_ALTERNATIVES`, `MISALIGNED_MEASURE`,
+  `PROVENANCE_BROKEN`).
+- 23 cas synthétiques (valides / invalides / refus) + 29 tests unitaires.
+- Mini-scénario docs/04 exécutable : attention estimable, working memory refusée.
+- CLI : `python validator/validate.py --all`.
+
+### Not added (volontaire)
+
+- Aucun estimateur numérique (phase 2).
+- Aucune UI, capteur, donnée réelle, API réseau.
+
+---
+
 ## [0.1.0] — 2026-08-25
 
 ### Added

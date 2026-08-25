@@ -21,4 +21,5 @@ Ordre de lecture recommandé :
 | 14 | [Limites](14_LIMITATIONS.md) | connaissance |
 
 Audit et nouveauté : `../research/`.  
-Working paper : `../papers/working-paper/HCSM_working_paper.md`.
+Working paper : `../papers/working-paper/HCSM_working_paper.md`.  
+Contrat exécutable (V1/V5) : [`../validator/`](../validator/README.md) — n'estime rien.

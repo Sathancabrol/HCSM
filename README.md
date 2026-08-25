@@ -1,6 +1,6 @@
 # HCSM — Human Cognitive State Model
 
-**Version 0.1.0** · 25 août 2026 · statut global : `PROPOSED`  
+**Version 0.1.1** · 25 août 2026 · statut global : `PROPOSED`  
 Cadre scientifique pour une représentation multidimensionnelle, contextualisée, temporelle et evidentiale de l'état cognitif humain à T0.
 
 > L'enjeu scientifique n'est plus simplement de mesurer davantage.  
@@ -160,8 +160,22 @@ HCSM/
 ├── figures/             architecture, graphes, T0, trajectoire
 ├── papers/              working paper + bibliographie
 ├── research/            audit, novelty matrix, questions ouvertes
-└── specs/               schéma de données, API, roadmap
+├── specs/               schéma de données, API, roadmap
+└── validator/           contrat exécutable V1 (forme) + V5 (admissibilité)
 ```
+
+### Validateur (phase 1 — fait)
+
+Le contrat n'est plus seulement documenté : il est exécutable.
+
+```bash
+cd validator
+pip install -r requirements.txt
+python validate.py --all          # 23 cas synthétiques
+python -m pytest tests/ -q        # tests unitaires
+```
+
+Ce module **n'estime rien**. Il rejette les objets illégaux et décide si une inférence est admissible ou doit produire un `Refusal`. Voir `validator/README.md`.
 
 ### Parcours recommandé
 
@@ -170,7 +184,8 @@ HCSM/
 3. Modèle — `docs/04_HCSM_CONCEPTUAL_MODEL.md`, `model/mathematical-model.md`
 4. Ontologie — `ontology/README.md`, `ontology/hcsm-v0.1.yaml`
 5. Validation — `docs/12_VALIDATION_FRAMEWORK.md`, `docs/13_RESEARCH_PROTOCOL.md`
-6. Working paper — `papers/working-paper/HCSM_working_paper.md`
+6. Contrat exécutable — `validator/README.md`
+7. Working paper — `papers/working-paper/HCSM_working_paper.md`
 
 ---
 
